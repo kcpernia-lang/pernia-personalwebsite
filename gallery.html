@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Personal Website - Gallery</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url("C:\\Users\\Krizzy Anne Pernia\\OneDrive\\Pictures\\Camera Roll\\Pink & White Watercolor Floral Background Desktop Wallpaper.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #1f2937;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid #fbcfe8;
+      width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      width: 100%;
+      padding: 1.2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #1f2937;
+    }
+
+    .brand span {
+      color: #ec4899;
+    }
+
+    .nav-menu {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-menu a {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #4b5563;
+      padding-bottom: 4px;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: #db2777;
+      border-bottom: 3px solid #ec4899;
+    }
+
+    main {
+      flex: 1;
+      width: 100%;
+      padding: 2.5rem 2rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 98%;
+      max-width: 1600px;
+      background-color: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border: 2px solid #fbcfe8;
+      border-radius: 16px;
+      padding: 3rem;
+      box-shadow: 0 8px 25px rgba(236, 72, 153, 0.1);
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .page-title {
+      font-size: 2.5rem;
+      color: #db2777;
+      margin-bottom: 0.5rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .gallery-card {
+      background-color: #ffffff;
+      border: 2px solid #fbcfe8;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      cursor: pointer;
+      height: 380px;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 8px 20px rgba(236, 72, 153, 0.25);
+      border-color: #ec4899;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .lightbox-modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(8px);
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .lightbox-modal.show {
+      display: flex;
+      opacity: 1;
+    }
+
+    .lightbox-content {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: 12px;
+      border: 3px solid #fbcfe8;
+      box-shadow: 0 0 35px rgba(236, 72, 153, 0.5);
+      object-fit: contain;
+      transform: scale(0.85);
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .lightbox-modal.show .lightbox-content {
+      transform: scale(1);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #ffffff;
+      font-size: 3rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .close-btn:hover {
+      color: #ec4899;
+      transform: scale(1.15);
+    }
+
+    footer {
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid #fbcfe8;
+      text-align: center;
+      padding: 1.2rem;
+      color: #6b7280;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .container {
+        padding: 1.5rem;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="brand">Authornim<span>Krizzy</span></div>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      
+      <div class="page-header">
+        <h1 class="page-title"> Krizzy's Gallery</h1>
+      </div>
+
+      <div class="gallery-grid">
+        
+        <div class="gallery-card" onclick="openLightbox(this)">
+          <img src="c:\Users\Krizzy Anne Pernia\Downloads\606309565_1163365615962053_2054141899974892110_n.jpg" alt=" My Gallery Image 1">
+        </div>
+
+        <div class="gallery-card" onclick="openLightbox(this)">
+          <img src="C:\Users\Krizzy Anne Pernia\Downloads\511545408_1014121110886505_6022583719037515481_n.jpg" alt="Gallery Image 2">
+        </div>
+
+        <div class="gallery-card" onclick="openLightbox(this)">
+          <img src="C:\Users\Krizzy Anne Pernia\Downloads\488699754_956458749986075_8760502028549349338_n.jpg" alt="Gallery Image 3">
+        </div>
+
+        <div class="gallery-card" onclick="openLightbox(this)">
+          <img src="C:\Users\Krizzy Anne Pernia\Downloads\510970458_1014106137554669_6642567194817807115_n.jpg" alt="Gallery Image 4">
+        </div>
+
+        <div class="gallery-card" onclick="openLightbox(this)">
+          <img src="C:\Users\Krizzy Anne Pernia\Downloads\488254267_956461813319102_9201573230882818321_n.jpg" alt="Gallery Image 5">
+        </div>
+
+        <div class="gallery-card" onclick="openLightbox(this)">
+          <img src="C:\Users\Krizzy Anne Pernia\Downloads\483553823_937232395242044_2836685720059853015_n.jpg" alt="Gallery Image 6">
+        </div>
+
+        <div class="gallery-card" onclick="openLightbox(this)">
+          <img src="C:\Users\Krizzy Anne Pernia\Downloads\484876854_943728051259145_8711082585771102785_n.jpg" alt="Gallery Image 7">
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <div id="lightbox" class="lightbox-modal" onclick="closeLightbox()">
+    <span class="close-btn">&times;</span>
+    <img id="lightbox-img" class="lightbox-content" src="" alt="Enlarged View">
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Krizzy Anne C. Pernia. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function highlightActiveNavLink() {
+      var currentPath = window.location.pathname.split('/').pop() || 'gallery.html';
+      var navLinks = document.querySelectorAll('.nav-menu a');
+
+      navLinks.forEach(function(link) {
+        var href = link.getAttribute('href');
+        if (href === currentPath) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+
+    function openLightbox(cardElement) {
+      var img = cardElement.querySelector('img');
+      if (img) {
+        var lightbox = document.getElementById('lightbox');
+        var lightboxImg = document.getElementById('lightbox-img');
+        lightboxImg.src = img.src;
+        lightbox.classList.add('show');
+      }
+    }
+
+    function closeLightbox() {
+      var lightbox = document.getElementById('lightbox');
+      lightbox.classList.remove('show');
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', highlightActiveNavLink);
+  </script>
+</body>
+</html>

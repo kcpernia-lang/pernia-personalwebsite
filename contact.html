@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Personal Website - Contact</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url("C:\\Users\\Krizzy Anne Pernia\\OneDrive\\Pictures\\Camera Roll\\Pink & White Watercolor Floral Background Desktop Wallpaper.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #1f2937;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid #fbcfe8;
+      width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      width: 100%;
+      padding: 1.2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #1f2937;
+    }
+
+    .brand span {
+      color: #ec4899;
+    }
+
+    .nav-menu {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-menu a {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #4b5563;
+      padding-bottom: 4px;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: #db2777;
+      border-bottom: 3px solid #ec4899;
+    }
+
+    main {
+      flex: 1;
+      width: 100%;
+      padding: 2.5rem 2rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 98%;
+      max-width: 1200px;
+      background-color: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border: 2px solid #fbcfe8;
+      border-radius: 16px;
+      padding: 3rem;
+      box-shadow: 0 8px 25px rgba(236, 72, 153, 0.1);
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .page-title {
+      font-size: 2.5rem;
+      color: #db2777;
+      margin-bottom: 0.5rem;
+    }
+
+    .page-subtitle {
+      font-size: 1.1rem;
+      color: #6b7280;
+    }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .contact-info {
+      background-color: rgba(255, 253, 240, 0.85);
+      border: 2px solid #fbcfe8;
+      border-radius: 12px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .info-title {
+      font-size: 1.5rem;
+      color: #db2777;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      border-bottom: 2px solid #fbcfe8;
+      padding-bottom: 0.5rem;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .info-icon {
+      font-size: 1.4rem;
+      background-color: #fbcfe8;
+      color: #db2777;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .info-text h4 {
+      font-size: 1rem;
+      color: #1f2937;
+      margin-bottom: 0.2rem;
+    }
+
+    .info-text p, .info-text a {
+      font-size: 0.95rem;
+      color: #4b5563;
+    }
+
+    .info-text a:hover {
+      color: #db2777;
+      text-decoration: underline;
+    }
+
+    .contact-form {
+      background-color: #ffffff;
+      border: 2px solid #fbcfe8;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #374151;
+      margin-bottom: 0.4rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1.5px solid #fbcfe8;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      background-color: #fffdf0;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #ec4899;
+      box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.15);
+      background-color: #ffffff;
+    }
+
+    .word-counter {
+      text-align: right;
+      font-size: 0.85rem;
+      color: #6b7280;
+      margin-top: 0.3rem;
+      font-weight: 600;
+    }
+
+    .word-counter.warning {
+      color: #e11d48;
+    }
+
+    .send-btn {
+      width: 100%;
+      background-color: #ec4899;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.9rem;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.2s;
+    }
+
+    .send-btn:hover {
+      background-color: #db2777;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid #fbcfe8;
+      text-align: center;
+      padding: 1.2rem;
+      color: #6b7280;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 850px) {
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .container {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="brand">Authornim<span>Krizzy</span></div>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      
+      <div class="page-header">
+        <h1 class="page-title">Get in Touch</h1>
+        <p class="page-subtitle">Have questions, feedback, or story recommendations, feel free to send me a message!</p>
+      </div>
+
+      <div class="contact-wrapper">
+        
+        <div class="contact-info">
+          <h2 class="info-title">Contact Information</h2>
+          
+          <div class="info-item">
+            <div class="info-icon">✉️</div>
+            <div class="info-text">
+              <h4>Email</h4>
+              <p><a href="mailto:yourrepinzzyknnez@gmail.com">yourrepinzzyknnez@gmail.com</a></p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">📖</div>
+            <div class="info-text">
+              <h4>Wattpad Profile</h4>
+              <p><a href="https://www.wattpad.com/user/repinzzyknez" target="_blank">@repinzzyknez</a></p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">📍</div>
+            <div class="info-text">
+              <h4>Location</h4>
+              <p>Calamba, Laguna, Philippines</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">💬</div>
+            <div class="info-text">
+              <h4>Writer's Note</h4>
+              <p>Feel free to reach out regarding collaborations, story inquiries, or just to talk about fantasy and writing!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <form id="contactForm" onsubmit="return handleFormSubmit(event)">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="What is this regarding?" required>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message (Max 1000 words)</label>
+              <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+              <div id="wordCounter" class="word-counter">0 / 1000 words</div>
+            </div>
+
+            <button type="submit" class="send-btn">Send Message ✨</button>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Krizzy Anne C. Pernia. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function highlightActiveNavLink() {
+      var currentPath = window.location.pathname.split('/').pop() || 'contact.html';
+      var navLinks = document.querySelectorAll('.nav-menu a');
+
+      navLinks.forEach(function(link) {
+        var href = link.getAttribute('href');
+        if (href === currentPath) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+
+    var messageArea = document.getElementById('message');
+    var wordCounter = document.getElementById('wordCounter');
+
+    function countWords(str) {
+      var trimmed = str.trim();
+      if (trimmed === '') return 0;
+      return trimmed.split(/\s+/).length;
+    }
+
+    messageArea.addEventListener('input', function() {
+      var words = countWords(this.value);
+      wordCounter.textContent = words + ' / 1000 words';
+
+      if (words > 1000) {
+        wordCounter.classList.add('warning');
+      } else {
+        wordCounter.classList.remove('warning');
+      }
+    });
+
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      var words = countWords(messageArea.value);
+
+      if (words > 1000) {
+        alert('Your message exceeds the maximum limit of 1000 words. Please shorten your message before sending.');
+        return false;
+      }
+
+      alert('Thank you for reaching out! Your message has been received.');
+      document.getElementById('contactForm').reset();
+      wordCounter.textContent = '0 / 1000 words';
+      wordCounter.classList.remove('warning');
+      return false;
+    }
+
+    document.addEventListener('DOMContentLoaded', highlightActiveNavLink);
+  </script>
+</body>
+</html>

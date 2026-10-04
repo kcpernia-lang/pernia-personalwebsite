@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Personal Website - About Me</title>
+  
+   <style>
+    :root {
+      --bg-cream: #FFFDD0;
+      --accent-pink: #EC4899;
+      --accent-pink-hover: #DB2777;
+      --border-pink: #FBCFE8;
+      --text-dark: #1F2937;
+      --text-secondary: #4B5563;
+      --font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+
+    body {
+      background-image: url('c:\\Users\\Krizzy Anne Pernia\\OneDrive\\Pictures\\Camera Roll\\Pink & White Watercolor Floral Background Desktop Wallpaper.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      font-family: var(--font-family);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .header {
+      background-color: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-pink);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+    }
+
+    .nav-container {
+      width: 100%;
+      padding: 1rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--text-dark);
+    }
+
+    .brand-logo span {
+      color: var(--accent-pink);
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      transition: color 0.3s ease;
+      padding: 0.3rem 0;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent-pink-hover);
+      border-bottom: 2px solid var(--accent-pink);
+    }
+
+    .main-content {
+      flex: 1;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 3rem 1.5rem;
+    }
+
+    .hero-container {
+      max-width: 1050px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border: 2px solid var(--border-pink);
+      border-radius: 24px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 30px rgba(236, 72, 153, 0.15);
+    }
+    .main-content {
+      flex: 1;
+      width: 100%;
+      padding: 2.5rem 1.5rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-container {
+      width: 95%;
+      max-width: 1600px;
+      background-color: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border: 2px solid var(--border-pink);
+      border-radius: 24px;
+      padding: 3.5rem 4rem;
+      box-shadow: 0 12px 35px rgba(236, 72, 153, 0.12);
+    }
+
+    .page-title {
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: var(--accent-pink-hover);
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+      font-weight: 500;
+    }
+
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border-pink), transparent);
+      margin: 2.5rem 0;
+    }
+
+    .bio-section h2 {
+      font-size: 1.5rem;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+
+    .bio-section p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      font-size: 1.05rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .writing-themes {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .theme-card {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-pink);
+      padding: 1.8rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .theme-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-pink);
+    }
+
+    .theme-card h3 {
+      color: var(--accent-pink-hover);
+      font-size: 1.15rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .theme-card p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-top: 1.2rem;
+    }
+
+    .skill-badge {
+      background-color: #FFFFFF;
+      border: 1.5px solid var(--border-pink);
+      color: var(--text-dark);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.6rem 1.3rem;
+      border-radius: 30px;
+      box-shadow: 0 2px 10px rgba(236, 72, 153, 0.06);
+      transition: all 0.3s ease;
+    }
+
+    .skill-badge:hover {
+      border-color: var(--accent-pink);
+      color: var(--accent-pink-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(236, 72, 153, 0.15);
+    }
+
+    .story-card {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+      background: #FFFFFF;
+      border: 2px solid var(--border-pink);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 8px 25px rgba(236, 72, 153, 0.08);
+      margin-top: 1.5rem;
+    }
+
+    .story-cover-wrapper {
+      flex: 0 0 220px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 2px solid var(--border-pink);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .story-cover-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .story-cover-img:hover {
+      transform: scale(1.04);
+    }
+
+    .story-details {
+      flex: 1;
+    }
+
+    .story-title {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    .story-author {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--accent-pink-hover);
+      margin-bottom: 1.2rem;
+    }
+
+    .story-description {
+      font-size: 1.02rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background-color: var(--accent-pink);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.85rem 1.8rem;
+      border-radius: 30px;
+      box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-pink-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      background-color: #FFFFFF;
+      color: var(--accent-pink-hover);
+      border: 2px solid var(--border-pink);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.85rem 1.8rem;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background-color: #FFF0F5;
+      border-color: var(--accent-pink);
+      transform: translateY(-2px);
+    }
+
+    .footer {
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid var(--border-pink);
+      text-align: center;
+      padding: 1.2rem;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    #backToTop {
+      display: none;
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 44px;
+      height: 44px;
+      background-color: var(--accent-pink);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(236, 72, 153, 0.35);
+      z-index: 1000;
+    }
+
+    #backToTop:hover {
+      background-color: var(--accent-pink-hover);
+    }
+
+    @media (max-width: 900px) {
+      .about-container {
+        padding: 2.5rem 2rem;
+        width: 100%;
+      }
+
+      .writing-themes {
+        grid-template-columns: 1fr;
+      }
+
+      .story-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .story-cover-wrapper {
+        flex: none;
+        width: 100%;
+        max-width: 200px;
+      }
+
+      .btn-group {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <nav class="nav-container">
+      <a href="index.html" class="brand-logo">Authornim<span>Krizzy</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About Me</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <div class="about-container">
+      <h1 class="page-title">Behind the Pen ✍️</h1>
+      <p class="subtitle">Crafting immersive fantasy worlds, emotional character arcs, and interactive narratives.</p>
+
+      <div class="bio-section">
+        <h2>My Writing Journey</h2>
+        <p>
+          Welcome! I'm <strong>Krizzy</strong>, an aspiring fantasy author writing under the pen name <em>REPINZZYKNEZ</em>. Creative writing has always been my creative escape and passion, a way to build intricate worlds and explore complex human emotions through fantasy literature.
+        </p>
+        <p>
+          By day (and sometimes night, haha!), I study Computer Science, which gives me a unique perspective on storytelling. I love to experiment with narrative structures and explore the boundaries of traditional storytelling.
+        </p>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <div class="bio-section">
+        <h2>What I Write</h2>
+        <div class="writing-themes">
+          <div class="theme-card">
+            <h3>✨ Fantasy & Worldbuilding</h3>
+            <p>High fantasy, immersive magic systems, ancient lore, and deep atmospheric environments.</p>
+          </div>
+          <div class="theme-card">
+            <h3>🗡️ Dark Fantasy & Adventure</h3>
+            <p>High-stakes questing, dungeon exploration narratives, and morally complex hero journeys.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <div class="bio-section">
+        <h2>Technical & Software Skills</h2>
+        <div class="skills-grid">
+          <span class="skill-badge">HTML5 & CSS3</span>
+          <span class="skill-badge">JavaScript</span>
+          <span class="skill-badge">Java</span>
+          <span class="skill-badge">C++</span>
+          <span class="skill-badge">MySQL Workbench</span>
+          <span class="skill-badge">Cisco Packet Tracer</span>
+          <span class="skill-badge">Visual Studio Code</span>
+          <span class="skill-badge">Database Design & ERD</span>
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <div class="bio-section">
+        <h2>Current Work</h2>
+        <div class="story-card">
+          <div class="story-cover-wrapper">
+            <img src="C:\Users\Krizzy Anne Pernia\Downloads\Untitled design (1).png" alt="The Dominion of Mysts and Quest" class="story-cover-img">
+          </div>
+          <div class="story-details">
+            <h3 class="story-title">The Dominion of Mysts and Quest</h3>
+            <p class="story-author">By Repinzzyknez</p>
+            <p class="story-description">
+             In a realm filled with mysterious and magical ethereal creatures, a pink dragon lies in the Domain of Mysts. This enchanting land is veiled in enchantment, where the air is alive with ancient spells and whispers of forgotten legends.
+ 
+Within the Dominion of Mysts, an epic journey awaits those who possess the bravery to seek it. This journey not only promises thrilling adventures, but also the opportunity to uncover the secrets of the universe and attain unimaginable power. It is believed that only a select few, guided by the spirit of the four dragon that symbolizes the houses of Azurewing Academy can embark on this treacherous quest and emerge triumphant.
+            </p>
+            <div class="btn-group">
+              <a href="portfolio.html" class="btn-primary">Explore Stories & Works &rarr;</a>
+              <a href="contact.html" class="btn-secondary">Let's Collaborate</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Krizzy Anne C. Pernia. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var currentPage = window.location.pathname.split("/").pop() || "about.html";
+      var navLinks = document.querySelectorAll(".nav-links a");
+
+      for (var i = 0; i < navLinks.length; i++) {
+        var linkPage = navLinks[i].getAttribute("href");
+        if (
+          linkPage.toLowerCase() === currentPage.toLowerCase() ||
+          (currentPage === "" && linkPage.toLowerCase() === "about.html")
+        ) {
+          navLinks[i].className = "active";
+        } else {
+          navLinks[i].className = "";
+        }
+      }
+
+      var backToTopBtn = document.createElement("button");
+      backToTopBtn.id = "backToTop";
+      backToTopBtn.innerHTML = "↑";
+      backToTopBtn.title = "Back to Top";
+      document.body.appendChild(backToTopBtn);
+
+      window.onscroll = function () {
+        if (
+          document.body.scrollTop > 300 ||
+          document.documentElement.scrollTop > 300
+        ) {
+          backToTopBtn.style.display = "block";
+        } else {
+          backToTopBtn.style.display = "none";
+        }
+      };
+
+      backToTopBtn.onclick = function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      };
+    });
+  </script>
+</body>
+</html>

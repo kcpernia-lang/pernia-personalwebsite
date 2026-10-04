@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Personal Website - Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('c:\\Users\\Krizzy Anne Pernia\\OneDrive\\Pictures\\Camera Roll\\Pink & White Watercolor Floral Background Desktop Wallpaper.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: #1f2937;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid #fbcfe8;
+      width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      width: 100%;
+      padding: 1.2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #1f2937;
+    }
+
+    .brand span {
+      color: #ec4899;
+    }
+
+    .nav-menu {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-menu a {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #4b5563;
+      padding-bottom: 4px;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: #db2777;
+      border-bottom: 3px solid #ec4899;
+    }
+
+    main {
+      flex: 1;
+      width: 100%;
+      padding: 2.5rem 2rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 98%;
+      max-width: 1600px;
+      background-color: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border: 2px solid #fbcfe8;
+      border-radius: 16px;
+      padding: 3rem;
+      box-shadow: 0 8px 25px rgba(236, 72, 153, 0.1);
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .page-title {
+      font-size: 2.5rem;
+      color: #db2777;
+      margin-bottom: 0.5rem;
+    }
+
+    .page-subtitle {
+      font-size: 1.1rem;
+      color: #6b7280;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      color: #1f2937;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #fbcfe8;
+    }
+
+    .featured-story-card {
+      background-color: rgba(255, 253, 240, 0.85);
+      border: 2px solid #ec4899;
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-bottom: 3.5rem;
+      display: flex;
+      gap: 2.5rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    }
+
+    .cover-box {
+      flex: 0 0 240px;
+    }
+
+    .cover-box img {
+      width: 100%;
+      border-radius: 8px;
+      border: 2px solid #fbcfe8;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .story-info {
+      flex: 1;
+    }
+
+    .story-header-title {
+      font-size: 2rem;
+      color: #1f2937;
+      margin-bottom: 0.8rem;
+    }
+
+    .stats-bar {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      color: #4b5563;
+      font-size: 0.95rem;
+    }
+
+    .stats-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .status-badge {
+      display: inline-block;
+      background-color: #ec4899;
+      color: #ffffff;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .meta-text {
+      color: #6b7280;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .story-summary {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #374151;
+      margin-bottom: 1.5rem;
+    }
+
+    .story-summary p {
+      margin-bottom: 1rem;
+    }
+
+    .tag-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tag {
+      background-color: #ffffff;
+      border: 1px solid #fbcfe8;
+      color: #ec4899;
+      padding: 0.3rem 0.7rem;
+      border-radius: 15px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .read-button {
+      display: inline-block;
+      background-color: #ec4899;
+      color: #ffffff;
+      font-weight: 700;
+      padding: 0.8rem 1.8rem;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.2s, transform 0.2s;
+    }
+
+    .read-button:hover {
+      background-color: #db2777;
+      transform: translateY(-2px);
+    }
+
+    .journey-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .journey-card {
+      background-color: rgba(255, 255, 255, 0.95);
+      border: 1.5px solid #fbcfe8;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .journey-card img {
+      width: 160px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #fbcfe8;
+      margin-bottom: 1rem;
+    }
+
+    .journey-title {
+      font-size: 1.25rem;
+      color: #1f2937;
+      margin-bottom: 0.3rem;
+    }
+
+    .journey-author {
+      font-size: 0.85rem;
+      color: #ec4899;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+
+    .journey-tagline {
+      font-size: 0.9rem;
+      color: #db2777;
+      font-style: italic;
+      cursor: pointer;
+      user-select: none;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      background-color: #fff1f2;
+      border: 1px dashed #fbcfe8;
+      transition: all 0.2s ease;
+    }
+
+    .journey-tagline:hover {
+      background-color: #fbcfe8;
+      color: #831843;
+    }
+
+    .journey-description {
+      display: none;
+      margin-top: 1rem;
+      padding: 1rem;
+      background-color: #fffdf0;
+      border: 1px solid #fbcfe8;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      color: #374151;
+      line-height: 1.5;
+      text-align: left;
+    }
+
+    .journey-description.show {
+      display: block;
+    }
+
+    footer {
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid #fbcfe8;
+      text-align: center;
+      padding: 1.2rem;
+      color: #6b7280;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 900px) {
+      .featured-story-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .journey-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .container {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="brand">Authornim<span>Krizzy</span></div>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="portfolio.html" class="active">Portfolio</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      
+      <div class="page-header">
+        <h1 class="page-title">My Writing Portfolio</h1>
+        <p class="page-subtitle">My journey as an author leading to my current ongoing story</p>
+      </div>
+
+      <h2 class="section-title">Current Story in Progress</h2>
+      
+      <div class="featured-story-card">
+        <div class="cover-box">
+          <img src="C:\Users\Krizzy Anne Pernia\Downloads\Untitled design (1).png" alt="The Dominion of Mysts and Quest Cover" onerror="this.src='https://via.placeholder.com/240x360?text=Dominion+of+Mysts'">
+        </div>
+        
+        <div class="story-info">
+          <h2 class="story-header-title">The Dominion of Mysts and Quest</h2>
+          
+          <div class="stats-bar">
+            <span class="stats-item">👁️ 1.65K Reads</span>
+            <span class="stats-item">⭐ 37 Votes</span>
+            <span class="stats-item">📑 40 Parts</span>
+          </div>
+
+          <div>
+            <span class="status-badge">Ongoing</span>
+            <span style="font-size: 0.9rem; color: #6b7280; margin-left: 0.5rem;">⏱ 3h 7m reading time</span>
+          </div>
+
+          <p class="meta-text">
+            <strong>Last published:</strong> Wed, Jul 27, 2022<br>
+            <strong>Genre:</strong> Fiction • Fantasy • Mythical Creatures • High Fantasy • Romance • Slow Burn • Opposites Attract
+          </p>
+
+          <div class="story-summary">
+            <p>
+              In a realm filled with mysterious and magical ethereal creatures, a pink dragon lies in the Domain of Mysts. This enchanting land is veiled in enchantment, where the air is alive with ancient spells and whispers of forgotten legends.
+            </p>
+            <p>
+              Within the Dominion of Mysts, an epic journey awaits those who possess the bravery to seek it. This journey not only promises thrilling adventures, but also the opportunity to uncover the secrets of the universe and attain unimaginable power. It is believed that only a select few, guided by the spirit of the four dragon that symbolizes the houses of Azurewing Academy can embark on this treacherous quest and emerge triumphant.
+            </p>
+          </div>
+
+          <div class="tag-container">
+            <span class="tag">#4houses</span>
+            <span class="tag">#azurewing</span>
+            <span class="tag">#chosenone</span>
+            <span class="tag">#death</span>
+            <span class="tag">#enid</span>
+            <span class="tag">#fantasy</span>
+            <span class="tag">#guardian</span>
+            <span class="tag">#lucas</span>
+            <span class="tag">#repinzzyknez</span>
+            <span class="tag">#threesiblings</span>
+            <span class="tag">#wizardsandwitches</span>
+          </div>
+
+          <a href="https://www.wattpad.com/story/262711174-the-dominion-of-mysts-and-quest" target="_blank" class="read-button">Continue Reading on Wattpad &rarr;</a>
+        </div>
+      </div>
+
+      <h2 class="section-title">The Journey Before/ The Unpublish and Not Finish Ones</h2>
+      
+      <div class="journey-grid">
+        
+        <div class="journey-card">
+          <img src="Dark Photo Autobiography Book Cover.jpg" alt="It's All Planned Cover" onerror="this.src='c:\\Users\\Krizzy Anne Pernia\\Downloads\\Dark Photo Autobiography Book Cover.png'">
+          <h3 class="journey-title">It's All Planned</h3>
+          <p class="journey-author">REPINZZYKNEZ • TRIOLOGY 1</p>
+          <p class="journey-tagline" onclick="toggleDescription('desc-1')">✨ "Decide on and arrange in advance" (Click to read Story Description)</p>
+          <div id="desc-1" class="journey-description">
+            A year of absolute silence hasn't erased the memories, nor has it dulled the pain of a love that ended without closure. Watching her from across the bar, drowning her sorrows in nonstop drinking and reckless living, he fights the overwhelming urge to intervene, knowing he no longer holds the right to step into her life. It is agonizing to watch the person who once meant everything to him move on and have fun with someone else, especially when all he ever did was match her energy, reciprocate her feelings, and allow himself to fall completely. Now trapped in a repeating cycle of listening to her drunkenly dismiss everyone in her life as a mistake, he is left grappling with deep regret, unspoken apologies, and the painful question of whether their fight was ever worth the wreckage left behind.
+          </div>
+        </div>
+
+        <div class="journey-card">
+          <img src="Blue-Watercolor-Romantic-Hugging-Couple-Novel-Book-Cover-2.pdf.jpg" alt="The Desired Chance Cover" onerror="this.src='c:\\Users\\Krizzy Anne Pernia\\Downloads\\Blue-Watercolor-Romantic-Hugging-Couple-Novel-Book-Cover-2.pdf.png'">
+          <h3 class="journey-title">The Desired Chance</h3>
+          <p class="journey-author">REPINZZYKNEZ</p>
+          <p class="journey-tagline" onclick="toggleDescription('desc-2')">✨ "A strong feeling of wanting someone you want to be with" (Click to read Story Description)</p>
+          <div id="desc-2" class="journey-description">
+            <p>A heartfelt story exploring second chances, longing, and courage, The Desired Chance delves into the agonizing weight of regret and the desperate hope of undoing past mistakes. When a rare opportunity arises to rewrite history and salvage a love that was once thought lost forever, taking hold of that long-awaited second chance proves far more dangerous than expected. As hidden truths surface and fate demands its price, courage becomes the only way to navigate the unexpected consequences of altering what was meant to be, proving that grabbing a desired chance requires more than just longing—it requires the strength to face whatever comes next.</p>
+          </div>
+        </div>
+
+        <div class="journey-card">
+          <img src="1V5C.jpg" alt="The Awaited Lost Ace Cover" onerror="this.src='c:\\Users\\Krizzy Anne Pernia\\Downloads\\1V5C.png'">
+          <h3 class="journey-title">The Awaited Lost Ace</h3>
+          <p class="journey-author">REPINZZYKNEZ</p>
+          <p class="journey-tagline" onclick="toggleDescription('desc-3')">✨ "A journey of magic & secrets and the comeback of the chosen one" (Click to read Story Description)</p>
+          <div id="desc-3" class="journey-description">
+            <p>An intrigue-filled fantasy tale centered around an ancient floating castle suspended in the clouds, The Awaited Lost Ace uncovers a world shrouded in mystery, dark conspiracies, and forgotten legends. As the floating kingdom teeters on the brink of collapse, hidden secrets unravel to reveal that its ultimate salvation lies in a power long presumed to be extinct. The realm's last hope rests on the discovery of a missing key, the long-awaited lost ace whose arrival will either break the ancient curse surrounding the kingdom or plunge its majestic towers into ultimate ruin.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Krizzy Anne C. Pernia. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function highlightActiveNavLink() {
+      var currentPath = window.location.pathname.split('/').pop() || 'portfolio.html';
+      var navLinks = document.querySelectorAll('.nav-menu a');
+
+      navLinks.forEach(function(link) {
+        var href = link.getAttribute('href');
+        if (href === currentPath) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+
+    function toggleDescription(id) {
+      var element = document.getElementById(id);
+      if (element) {
+        element.classList.toggle('show');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', highlightActiveNavLink);
+  </script>
+</body>
+</html>
